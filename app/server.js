@@ -85,6 +85,9 @@ async function handle(req, res) {
   if (req.method === 'GET' && m) {
     const session = currentSession(req);
     if (!session) return send(res, 401, { error: 'login required' });
+    if (session.studentId !== m[1]) {
+      return send(res, 403, { error: 'access denied' });
+    }
     const ledger = store.ledgers[m[1]];
     if (!ledger) return send(res, 404, { error: 'not found' });
     return send(res, 200, { studentId: m[1], ...ledger });
