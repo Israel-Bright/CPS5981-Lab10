@@ -63,8 +63,11 @@ async function handle(req, res) {
 
   // Catalogue search - echoes the query back into HTML.
   if (req.method === 'GET' && path === '/search') {
-    const q = _.escape(url.searchParams.get('q') || '');
-    return send(res, 200, `<html><body><h1>Results for ${q}</h1><p>No courses matched.</p></body></html>`, 'text/html');
+    const q = url.searchParams.get('q') || '';
+return send(res, 200,
+  `<html><body><h1>Results for ${_.escape(q)}</h1><p>No courses matched.</p></body></html>`,
+  'text/html'
+);
   }
 
   // GPA estimate - evaluates an expression supplied by the caller.
