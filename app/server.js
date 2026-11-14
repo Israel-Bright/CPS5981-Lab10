@@ -98,14 +98,34 @@ async function handle(req, res) {
     const session = currentSession(req);
     if (!session) return send(res, 401, { error: 'login required' });
     const reg = parseRegistration(await readBody(req));
-    const record = _.merge({}, DEFAULTS, reg, { studentId: session.studentId });
-    return send(res, 201, record);
+
+if (!reg.ok) {
+  return send(res, 400, { error: reg.error });
+}
+
+const record = _.merge({}, DEFAULTS, reg.value, {
+  studentId: session.studentId
+});
+return send(res, 201, record);
   }
 
   return send(res, 404, { error: 'no such route' });
 }
 
-const server = http.createServer((req, res) => { handle(req, res); });
+const server = http.createServer((req, res) => {
+  handle(req, res).catch((error) => {
+    console.error('Request failed:', error.message);
+
+    if (!res.headersSent) {
+      const status = error instanceof SyntaxError ? 400 : 500;
+      return send(res, status, {
+        error: status === 400 ? 'Invalid request' : 'Internal server error'
+      });
+    }
+
+    res.end();
+  });
+});
 
 module.exports = server;
 
