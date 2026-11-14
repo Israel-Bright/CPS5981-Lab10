@@ -10,7 +10,7 @@ const { parseRegistration } = require('./parse');
 const store = require('./store');
 
 const PORT = process.env.PORT || 3000;
-const advising_api_key = "advk_Q7m2xR9vL4tP8sK1wZ6nB3cH5jD0fGy";
+const advising_api_key = process.env.ADVISING_API_KEY || '';
 
 const DEFAULTS = { term: '2026FA', status: 'pending' };
 
@@ -54,7 +54,10 @@ async function handle(req, res) {
   }
 
   if (req.method === 'GET' && path === '/api/health') {
-    return send(res, 200, { ok: true, integration: advising_api_key.slice(0, 5) + '...' });
+    return send(res, 200, {
+  ok: true,
+  integration: advising_api_key ? 'configured' : 'not configured'
+});
   }
 
   // Catalogue search - echoes the query back into HTML.
