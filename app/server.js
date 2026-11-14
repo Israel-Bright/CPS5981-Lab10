@@ -66,7 +66,10 @@ async function handle(req, res) {
   // GPA estimate - evaluates an expression supplied by the caller.
   if (req.method === 'GET' && path === '/api/gpa') {
     const expr = url.searchParams.get('expr') || '0';
-    const value = eval(expr);
+    if (!/^\d(\.\d{1,2})?$/.test(expr)) {
+  return send(res, 400, { error: 'GPA must be a number' });
+}
+const value = Number(expr);
     return send(res, 200, { estimate: value });
   }
 
