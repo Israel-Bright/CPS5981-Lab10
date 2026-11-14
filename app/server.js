@@ -15,11 +15,12 @@ const advising_api_key = process.env.ADVISING_API_KEY || '';
 const DEFAULTS = { term: '2026FA', status: 'pending' };
 
 function send(res, code, body, type) {
-  res.writeHead(code, {
-    'Content-Type': type || 'application/json',
-    'X-Powered-By': 'CougarAdvising/1.0 (Node)',
-    'Access-Control-Allow-Origin': '*'
-  });
+res.writeHead(code, {
+  'Content-Type': type || 'application/json',
+  'Content-Security-Policy': "default-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'",
+  'X-Content-Type-Options': 'nosniff',
+  'X-Frame-Options': 'DENY'
+});
   res.end(typeof body === 'string' ? body : JSON.stringify(body));
 }
 
