@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: REQ-014: student cannot read another student’s ledger
+ok 1 - REQ-014: student cannot read another student’s ledger
+  ---
+  duration_ms: 65.35854
+  type: 'test'
+  ...
+# Subtest: REQ-014: student can still read their own ledger
+ok 2 - REQ-014: student can still read their own ledger
+  ---
+  duration_ms: 8.529611
+  type: 'test'
+  ...
+# Subtest: REQ-010: GPA input cannot execute JavaScript
+ok 3 - REQ-010: GPA input cannot execute JavaScript
+  ---
+  duration_ms: 65.636783
+  type: 'test'
+  ...
+# Subtest: REQ-010: numeric GPA input remains usable
+ok 4 - REQ-010: numeric GPA input remains usable
+  ---
+  duration_ms: 8.937318
+  type: 'test'
+  ...
+# Subtest: SR-AUTH-01: anonymous caller cannot read a ledger
+ok 5 - SR-AUTH-01: anonymous caller cannot read a ledger
+  ---
+  duration_ms: 55.097073
+  type: 'test'
+  ...
+# Subtest: LAB10-ROBUST-01: fixed hostile inputs do not throw
+ok 6 - LAB10-ROBUST-01: fixed hostile inputs do not throw
+  ---
+  duration_ms: 2.451664
+  type: 'test'
+  ...
+# Subtest: LAB10-ROBUST-01: 300 generated strings do not throw
+ok 7 - LAB10-ROBUST-01: 300 generated strings do not throw
+  ---
+  duration_ms: 8.03508
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 281.516715

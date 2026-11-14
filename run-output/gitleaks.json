@@ -1,0 +1,42 @@
+[
+ {
+  "Description": "Detected a Generic API Key, potentially exposing access to various services and sensitive operations.",
+  "StartLine": 13,
+  "EndLine": 13,
+  "StartColumn": 8,
+  "EndColumn": 64,
+  "Match": "advising_api_key = \"REDACTED\"",
+  "Secret": "REDACTED",
+  "File": "app/server.js",
+  "SymlinkFile": "",
+  "Commit": "cbd45dcc5081b2544fe9ac2e69c64fb8a8d38b0d",
+  "Entropy": 5.1143694,
+  "Author": "Israel-Bright",
+  "Email": "75705970+Israel-Bright@users.noreply.github.com",
+  "Date": "2026-11-13T08:20:10Z",
+  "Message": "Add server.js for Cougar Advising application",
+  "Tags": [],
+  "RuleID": "generic-api-key",
+  "Fingerprint": "cbd45dcc5081b2544fe9ac2e69c64fb8a8d38b0d:app/server.js:generic-api-key:13"
+ },
+ {
+  "Description": "Detected a Generic API Key, potentially exposing access to various services and sensitive operations.",
+  "StartLine": 13,
+  "EndLine": 13,
+  "StartColumn": 8,
+  "EndColumn": 64,
+  "Match": "advising_api_key = \"REDACTED\"",
+  "Secret": "REDACTED",
+  "File": "app/app/app/server.js",
+  "SymlinkFile": "",
+  "Commit": "50b1d01e8cabe03d83b0eea6efb05c8e11791bca",
+  "Entropy": 5.1143694,
+  "Author": "Israel-Bright",
+  "Email": "75705970+Israel-Bright@users.noreply.github.com",
+  "Date": "2026-11-13T08:07:19Z",
+  "Message": "Add server.js for Cougar Advising application",
+  "Tags": [],
+  "RuleID": "generic-api-key",
+  "Fingerprint": "50b1d01e8cabe03d83b0eea6efb05c8e11791bca:app/app/app/server.js:generic-api-key:13"
+ }
+]
